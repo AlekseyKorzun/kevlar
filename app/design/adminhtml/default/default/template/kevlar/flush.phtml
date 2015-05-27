@@ -1,0 +1,32 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody>
+            <tr>
+                <td style="width:50%;">
+                    <h3 class="head-adminhtml-flush">
+                        <?php echo Mage::helper('adminhtml')->__('Cache Flush') ?>
+                    </h3>
+                </td>
+                <td class="form-buttons"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<table class="form-list">
+    <tr>
+        <form method="POST" action="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/kevlar_flush') ?>">
+            <td class="scope-label">
+                <textarea name="urls" style="width:500px; height: 100px; "></textarea><br />
+                <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+                <label for="is_emergency">
+                    <input type="checkbox" id="is_emergency" name="is_emergency" value="1"/>
+                    <?php echo Mage::helper('adminhtml')->__('This is an emergency flush. Notice will be dispatched.') ?>
+                </label>
+                <br/><br/>
+                <button type="submit" class="scalable">
+                    <span><?php echo Mage::helper('adminhtml')->__('Flush Links') ?></span>
+                </button>
+            </td>
+        </form>
+    </tr>
+</table>
