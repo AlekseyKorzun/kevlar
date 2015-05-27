@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Kevlar_Core>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Core />
+                <Mage_Adminhtml />
+                <Enterprise_Cms/>
+            </depends>
+        </Kevlar_Core>
+    </modules>
+</config>

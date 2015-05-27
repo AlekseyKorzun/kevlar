@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <kevlar module="kevlar">
+            <title>Kevlar</title>
+            <sort_order>80</sort_order>
+            <children>
+                <flush translate="title" module="kevlar">
+                    <title>Flush</title>
+                    <action>adminhtml/kevlar_flush</action>
+                    <sort_order>100</sort_order>
+                </flush>
+                <queue translate="title" module="kevlar">
+                    <title>Queue</title>
+                    <action>adminhtml/kevlar_queue</action>
+                    <sort_order>101</sort_order>
+                </queue>
+            </children>
+        </kevlar>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>               
+                    <kevlar translate="title" module="kevlar">
+                        <title>Kevlar</title>
+                        <sort_order>101</sort_order>
+                        <children>
+                            <flush module="kevlar">
+                                <title>Flush</title>
+                            </flush>
+                            <queue module="kevlar">
+                                <title>Queue</title>
+                            </queue>
+                        </children>
+                    </kevlar>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <cache module="kevlar">
+                                        <title>Cache</title>
+                                    </cache>
+                                    <queue module="kevlar">
+                                        <title>Queue</title>
+                                    </queue>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
