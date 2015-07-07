@@ -585,7 +585,7 @@ class Kevlar_Core_Model_Cron extends Varien_Object
 
         $delta = false;
 
-        // Loop thought required indexes and get the earliest execution time
+        // Loop through required indexes and get the earliest execution time
         // this time will be used as our delta across all indexes
         foreach ($this->indexes as $index => $status) {
             if (!$status) {

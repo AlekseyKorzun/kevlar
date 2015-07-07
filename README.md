@@ -1,6 +1,6 @@
 # Kevlar v1.0.0
 
-Kevlar is highly customizable caching system for Magento Enterprise Edition. Full support is offered for Akamai, CloudFlare and Varnish nodes.
+Kevlar is highly customizable caching system for Magento Enterprise Edition. Full parallel support is offered for Akamai, CloudFlare and Varnish nodes.
 
 Designed as push only system that relies on high (cache) TTL values for maximum coverage and performance.
 
@@ -8,11 +8,11 @@ Designed as push only system that relies on high (cache) TTL values for maximum 
 
   - Can support multiple providers at once w/ multiple domains and/or nodes.
   - Automatically detects and queues up category, product, inventory and CMS updates. Updates to products will trigger updates for categories the product is associated with (if product is visible). System will automatically detect `products per page` settings and purge accordingly.
-  - Build-in cache warm-up. Kevlar can make a request to a changed asset behind the caching layer before requesting a purge.
-  - Pre-generates thumbnails for product images before pushing updates to caching provider(s)
-  - Smart delta based queue that leverages `enterprise_logging_event_changes` and `enterprise_logging_event_changes` tables to skip unnecessary re-indexing of data.
+  - Built-in cache warm-up. Kevlar can make a request to a changed asset behind the caching layer before requesting a purge.
+  - Pre-generates thumbnails for product images before pushing updates to caching provider(s).
+  - Smart delta based queue that leverages `enterprise_logging_event_changes` tables to skip unnecessary re-indexing of data.
   - Kevlar will detect / group duplicate updates and 'skip' them.
-  - Extensive support for third party vendor API's. Build in purge limit w/ sleep buffer. Retry system, etc.
+  - Extensive support for third party vendor API's. Built-in purge limit w/ sleep buffer. Retry system, etc.
   - Provides real ETA after purge request is made for Akamai and CloudFlare. Varnish ETA is based on average turn around time per node * number of nodes.
   - Full support for Magento installations w/ multiple stores.
   - Ability to do on-demand purge of URI assets via Magento Admin w/ an option to by-pass the queue and make a direct purge request (emergency mode) for instant result. Notification option is available (will send out a notification when emergency purge is requested).
@@ -48,17 +48,17 @@ Following configuration changes must be made prior to using Kevlar. This is base
 - Cache Settings:
   - FPC (Full Page Caching) must be turned off.
   
-#####  Cronjobs
+##### Cronjobs
 Kevlar will install two cron jobs: 
-- One that processes the queue (*/15) named `kevlar_cache_queue`.
+- One that processes the queue (*/15) named `kevlar_cache_queue`. If you are not using delta based approach; set this to run at a higher interval.
 - One that will clear out processed items from the queue (30 2 * * *) named `kevlar_cache_queue_flush`.
 
 ##### Tables
-Kevlar utilizes following tables:
+Kevlar creates and leverages following tables:
 - kevlar_cache_queue
 - kevlar_cache_queue_flush
 
 #####  To-do
 - Move configuration under Magento Admin.
 - Detect if we are flushing X amount of URI's and switch over to full site purge .vs link by link approach w/ CloudFlare setup. Purge end-point is already implemented. Just need to figure out how to approach this from architectural stand point.
-- In this version, CMS updates have a check-box that will trigger site wide cache flush. This should be a configuration setting that enabled this for certain CMS blocks that are site wide. The process of purging all of the pages is slow especially if provider does not support wild-card/full purge. You can easily map CMS blocks with code for now (as needed).
+- In this version, CMS forms will have a check-box that will trigger site wide cache flush. This should be a configuration setting that enables check boxes for certain CMS blocks. The process of purging all of the pages is slow, especially if provider does not support wild-card/full purge. You can easily map CMS blocks with code for now (as needed).
