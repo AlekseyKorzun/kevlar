@@ -22,29 +22,29 @@
       <h1>
 <a id="kevlar-v100" class="anchor" href="#kevlar-v100" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kevlar v1.0.0</h1>
 
-<p>Kevlar is highly customizable caching system for Magento Enterprise Edition. Full parallel support is offered for Akamai, CloudFlare and Varnish nodes.</p>
+<p>Kevlar is a highly customizable caching system for Magento Enterprise Edition. Full parallel support is offered for Akamai, CloudFlare and Varnish nodes.</p>
 
 <p>Designed as push only system that relies on high (cache) TTL values for maximum coverage and performance.</p>
 
-<h4>
-<a id="highlights" class="anchor" href="#highlights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Highlights</h4>
+<h5>
+<a id="highlights" class="anchor" href="#highlights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Highlights</h5>
 
 <ul>
 <li>Can support multiple providers at once w/ multiple domains and/or nodes.</li>
 <li>Automatically detects and queues up category, product, inventory and CMS updates. Updates to products will trigger updates for categories the product is associated with (if product is visible). System will automatically detect <code>products per page</code> settings and purge accordingly.</li>
 <li>Built-in cache warm-up. Kevlar can make a request to a changed asset behind the caching layer before requesting a purge.</li>
 <li>Pre-generates thumbnails for product images before pushing updates to caching provider(s).</li>
-<li>Smart delta based queue that leverages <code>enterprise_logging_event_changes</code> tables to skip unnecessary re-indexing of data.</li>
+<li>Smart delta based queue that leverages enterprise_logging_event_changes tables to skip unnecessary re-indexing of data.</li>
 <li>Kevlar will detect / group duplicate updates and 'skip' them.</li>
 <li>Extensive support for third party vendor API's. Built-in purge limit w/ sleep buffer. Retry system, etc.</li>
 <li>Provides real ETA after purge request is made for Akamai and CloudFlare. Varnish ETA is based on average turn around time per node * number of nodes.</li>
 <li>Full support for Magento installations w/ multiple stores.</li>
-<li>Ability to do on-demand purge of URI assets via Magento Admin w/ an option to by-pass the queue and make a direct purge request (emergency mode) for instant result. Notification option is available (will send out a notification when emergency purge is requested).</li>
+<li>Ability to do on-demand purge of URI assets via Magento Admin w/ an option to by-pass the queue and make a direct purge request (emergency mode) for instant results. Notification option is available (will send out a notification when emergency purge is requested).</li>
 <li>Extremely flexible architecture for easy extensibility.</li>
 </ul>
 
-<h4>
-<a id="kevlar-configuration" class="anchor" href="#kevlar-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kevlar Configuration</h4>
+<h5>
+<a id="kevlar-configuration" class="anchor" href="#kevlar-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kevlar Configuration</h5>
 
 <p>High level overview of kevlar configuration. Currently configuration resides under <code>Kevlar/Core/etc/config.xml</code>. See to-do list at the bottom.</p>
 
@@ -81,8 +81,8 @@
 </li>
 </ul>
 
-<h4>
-<a id="magento-configuration" class="anchor" href="#magento-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Magento Configuration</h4>
+<h5>
+<a id="magento-configuration" class="anchor" href="#magento-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Magento Configuration</h5>
 
 <p>Following configuration changes must be made prior to using Kevlar. This is based on optimal configuration (with indexBased and forceIndex turned on).</p>
 
@@ -108,8 +108,8 @@
 </li>
 </ul>
 
-<h4>
-<a id="cronjobs" class="anchor" href="#cronjobs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cronjobs</h4>
+<h5>
+<a id="cronjobs" class="anchor" href="#cronjobs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cronjobs</h5>
 
 <p>Kevlar will install two cron jobs: </p>
 
@@ -118,8 +118,8 @@
 <li>One that will clear out processed items from the queue (30 2 * * *) named <code>kevlar_cache_queue_flush</code>.</li>
 </ul>
 
-<h4>
-<a id="tables" class="anchor" href="#tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tables</h4>
+<h5>
+<a id="tables" class="anchor" href="#tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tables</h5>
 
 <p>Kevlar creates and leverages following tables:</p>
 
@@ -128,8 +128,8 @@
 <li>kevlar_cache_queue_flush</li>
 </ul>
 
-<h4>
-<a id="to-do" class="anchor" href="#to-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>To-do</h4>
+<h5>
+<a id="to-do" class="anchor" href="#to-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>To-do</h5>
 
 <ul>
 <li>Move configuration under Magento Admin.</li>
