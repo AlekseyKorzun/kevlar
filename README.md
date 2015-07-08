@@ -1,6 +1,6 @@
 # Kevlar v1.0.0
 
-Kevlar is highly customizable caching system for Magento Enterprise Edition. Full parallel support is offered for Akamai, CloudFlare and Varnish nodes.
+Kevlar is a highly customizable caching system for Magento Enterprise Edition. Full parallel support is offered for Akamai, CloudFlare and Varnish nodes.
 
 Designed as push only system that relies on high (cache) TTL values for maximum coverage and performance.
 
@@ -10,12 +10,12 @@ Designed as push only system that relies on high (cache) TTL values for maximum 
   - Automatically detects and queues up category, product, inventory and CMS updates. Updates to products will trigger updates for categories the product is associated with (if product is visible). System will automatically detect `products per page` settings and purge accordingly.
   - Built-in cache warm-up. Kevlar can make a request to a changed asset behind the caching layer before requesting a purge.
   - Pre-generates thumbnails for product images before pushing updates to caching provider(s).
-  - Smart delta based queue that leverages `enterprise_logging_event_changes` tables to skip unnecessary re-indexing of data.
+  - Smart delta based queue that leverages enterprise_logging_event_changes tables to skip unnecessary re-indexing of data.
   - Kevlar will detect / group duplicate updates and 'skip' them.
   - Extensive support for third party vendor API's. Built-in purge limit w/ sleep buffer. Retry system, etc.
   - Provides real ETA after purge request is made for Akamai and CloudFlare. Varnish ETA is based on average turn around time per node * number of nodes.
   - Full support for Magento installations w/ multiple stores.
-  - Ability to do on-demand purge of URI assets via Magento Admin w/ an option to by-pass the queue and make a direct purge request (emergency mode) for instant result. Notification option is available (will send out a notification when emergency purge is requested).
+  - Ability to do on-demand purge of URI assets via Magento Admin w/ an option to by-pass the queue and make a direct purge request (emergency mode) for instant results. Notification option is available (will send out a notification when emergency purge is requested).
   - Extremely flexible architecture for easy extensibility.
 
 ##### Kevlar Configuration 
