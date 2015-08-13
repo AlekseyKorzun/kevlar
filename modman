@@ -1,0 +1,7 @@
+#Kevlar_Core
+app/code/community/Kevlar/Core								app/code/community/Kevlar/Core
+app/design/adminhtml/default/default/layout/*.xml			app/design/adminhtml/default/default/layout/
+app/design/adminhtml/default/default/template/kevlar/*		app/design/adminhtml/default/default/template/kevlar/
+app/etc/*.xml												app/etc/
+lib/Kevlar 													lib/Kevlar/
+shell/kevlar/*												shell/kevlar/
